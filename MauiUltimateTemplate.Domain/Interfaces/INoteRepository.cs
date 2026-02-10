@@ -1,4 +1,6 @@
-﻿namespace MauiUltimateTemplate.Domain.Entities
+﻿using MauiUltimateTemplate.Domain.Entities;
+
+namespace MauiUltimateTemplate.Domain.Interfaces
 {
     // Интерфейс хранилища (неважно: SQLite это или просто файлы)
     public interface INoteRepository

@@ -1,4 +1,6 @@
-﻿namespace MauiUltimateTemplate.Domain.Entities
+﻿using MauiUltimateTemplate.Domain.Entities;
+
+namespace MauiUltimateTemplate.Domain.Interfaces
 {
     public interface ICloudSyncService
     {

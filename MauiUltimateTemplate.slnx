@@ -1,5 +1,6 @@
 <Solution>
   <Project Path="MauiUltimateTemplate.Domain/MauiUltimateTemplate.Domain.csproj" />
+  <Project Path="MauiUltimateTemplate.Infrastructure/MauiUltimateTemplate.Infrastructure.csproj" />
   <Project Path="MauiUltimateTemplate/MauiUltimateTemplate.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
