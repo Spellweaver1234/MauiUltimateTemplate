@@ -55,5 +55,10 @@ namespace MauiUltimateTemplate.Application.Managers
 
             return _mapper.Map<List<NoteDto>>(notes);
         }
+
+        public async Task<bool> RemoveNoteAsync(Guid id)
+        {
+            return await _repository.DeleteAsync(id);
+        }
     }
 }

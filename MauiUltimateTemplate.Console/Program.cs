@@ -26,28 +26,58 @@ Console.WriteLine("--- МОИ ЗАМЕТКИ (КОНСОЛЬ) ---");
 
 while (true)
 {
-    Console.WriteLine("\n1. Показать список | 2. Добавить заметку | 0. Выход");
+    Console.WriteLine("\n1. Показать список | 2. Добавить заметку | 3. Удалить заметку | 0. Выход");
     var choice = Console.ReadLine();
 
     if (choice == "1")
     {
         // Вызываем команду загрузки вручную
-        await vm.LoadNotesCommand.ExecuteAsync(null);
-
-        foreach (var note in vm.Notes)
-        {
-            Console.WriteLine($"> {note.CreatedAt} [{note.Title}]: {note.Summary}");
-        }
+        ShowAll();
     }
     else if (choice == "2")
     {
-        Console.Write("Введите заголовок: ");
-        var title = Console.ReadLine();
+        Console.Write("Введите заголовок заметки: ");
+        vm.NewNoteTitle = Console.ReadLine();
 
-        // Здесь можно было бы расширить VM, чтобы она принимала параметры,
-        // но для теста вызовем существующую команду:
+        Console.Write("Введите текст заметки: ");
+        vm.NewNoteContent = Console.ReadLine();
+
+        // Вызываем команду — она подхватит данные из свойств выше
         await vm.AddNoteCommand.ExecuteAsync(null);
-        Console.WriteLine("Заметка добавлена!");
+
+        Console.WriteLine("\nЗаметка успешно сохранена!");
+
+        ShowAll();
+    }
+    else if (choice == "3")
+    {
+        Console.Write("Введите ID заметки для удаления (или часть ID): ");
+        string inputId = Console.ReadLine();
+
+        // Ищем заметку в загруженном списке VM (чтобы не заставлять юзера вводить весь Guid)
+        var noteToDelete = vm.Notes.FirstOrDefault(n => n.Id.ToString().Contains(inputId));
+
+        if (noteToDelete != null)
+        {
+            await vm.DeleteNoteCommand.ExecuteAsync(noteToDelete.Id);
+            Console.WriteLine("Заметка удалена!");
+        }
+        else
+        {
+            Console.WriteLine("Заметка с таким ID не найдена.");
+        }
+
+        ShowAll();
     }
     else if (choice == "0") break;
+}
+
+async void ShowAll()
+{
+    await vm.LoadNotesCommand.ExecuteAsync(null);
+
+    foreach (var note in vm.Notes)
+    {
+        Console.WriteLine($">{note.Id}\t{note.CreatedAt}\t[{note.Title}]: {note.Content}");
+    }
 }

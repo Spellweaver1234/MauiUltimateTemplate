@@ -7,7 +7,7 @@
 
         public Guid Id { get; init; }
         public string Title { get; init; }
-        public string Summary { get; init; }
+        public string Content { get; init; }
         public string CreatedAt { get; init; }
         public string UpdatedAt { get; init; }
     }

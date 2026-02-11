@@ -9,6 +9,6 @@ namespace MauiUltimateTemplate.Domain.Interfaces
         Task<IEnumerable<Note>> GetAllAsync();
         Task AddAsync(Note note);
         Task UpdateAsync(Note note);
-        Task DeleteAsync(Guid id);
+        Task<bool> DeleteAsync(Guid id);
     }
 }

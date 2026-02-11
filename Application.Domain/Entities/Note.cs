@@ -1,7 +1,10 @@
-﻿namespace MauiUltimateTemplate.Domain.Entities
+﻿using SQLite;
+
+namespace MauiUltimateTemplate.Domain.Entities
 {
     public class Note
     {
+        [PrimaryKey]
         public Guid Id { get; set; } = Guid.NewGuid();
         public string Title { get; set; }
         public string Content { get; set; }

@@ -25,6 +25,11 @@ namespace MauiUltimateTemplate.Infrastructure.Persistence
 
         public async Task<IEnumerable<Note>> GetAllAsync() => await _database.Table<Note>().ToListAsync();
 
-        public async Task DeleteAsync(Guid id) => await _database.DeleteAsync(id);
+        public async Task<bool> DeleteAsync(Guid id)
+        {
+            // Вместо автоматического метода используем явный запрос
+            var count = await _database.ExecuteAsync("DELETE FROM Note WHERE Id = ?", id);
+            return count > 0;
+        }
     }
 }

@@ -12,8 +12,9 @@ namespace MauiUltimateTemplate.Application.UI.ViewModels
     {
         private readonly NoteManager _noteManager;
 
-        [ObservableProperty]
-        private ObservableCollection<NoteDto> notes;
+        [ObservableProperty] private ObservableCollection<NoteDto> notes;
+        [ObservableProperty] private string newNoteTitle;
+        [ObservableProperty] private string newNoteContent;
 
         public MainViewModel(NoteManager noteManager)
         {
@@ -30,8 +31,27 @@ namespace MauiUltimateTemplate.Application.UI.ViewModels
         [RelayCommand]
         private async Task AddNote()
         {
-            await _noteManager.CreateNoteAsync("Новая заметка", "Текст заметки...");
+            var title = string.IsNullOrWhiteSpace(NewNoteTitle) ? "Без названия" : NewNoteTitle;
+            var content = string.IsNullOrWhiteSpace(NewNoteContent) ? "" : NewNoteContent;
+
+            await _noteManager.CreateNoteAsync(title, content);
+
+            // Очищаем поля после добавления
+            NewNoteTitle = string.Empty;
+            NewNoteContent = string.Empty;
+
             await LoadNotes();
+        }
+
+        [RelayCommand]
+        private async Task DeleteNote(Guid id)
+        {
+            var success = await _noteManager.RemoveNoteAsync(id);
+            if (success)
+            {
+                // Обновляем список, чтобы удаленная заметка исчезла
+                await LoadNotes();
+            }
         }
     }
 }
