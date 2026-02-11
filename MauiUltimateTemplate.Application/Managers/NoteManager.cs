@@ -1,25 +1,31 @@
-﻿using MauiUltimateTemplate.Domain.Entities;
+﻿using AutoMapper;
+
+using MauiUltimateTemplate.Application.DTOs;
+using MauiUltimateTemplate.Domain.Entities;
 using MauiUltimateTemplate.Domain.Interfaces;
 
 using IConnectivity = MauiUltimateTemplate.Domain.Interfaces.IConnectivity;
 
-namespace MauiUltimateTemplate.Services.Features
+namespace MauiUltimateTemplate.Application.Managers
 {
     public class NoteManager
     {
         private readonly INoteRepository _repository;
         private readonly ICloudSyncService _syncService;
         private readonly IConnectivity _connectivity;
+        private readonly IMapper _mapper;
 
         // Мы просим ИНТЕРФЕЙСЫ, а не конкретные классы (DI в действии)
         public NoteManager(
             INoteRepository repository,
             ICloudSyncService syncService,
-            IConnectivity connectivity)
+            IConnectivity connectivity,
+            IMapper mapper)
         {
             _repository = repository;
             _syncService = syncService;
             _connectivity = connectivity;
+            _mapper = mapper;
         }
 
         // СЦЕНАРИЙ: Создание заметки с авто-синхронизацией
@@ -46,13 +52,8 @@ namespace MauiUltimateTemplate.Services.Features
         public async Task<IEnumerable<NoteDto>> GetNotesListAsync()
         {
             var notes = await _repository.GetAllAsync();
-            return notes.Select(n => new NoteDto(
-                n.Id,
-                n.Title,
-                n.Content.Length > 50 ? n.Content[..50] + "..." : n.Content,
-                n.CreatedAt.ToShortDateString(),
-                n.UpdatedAt.ToShortDateString()
-            ));
+
+            return _mapper.Map<List<NoteDto>>(notes);
         }
     }
 }

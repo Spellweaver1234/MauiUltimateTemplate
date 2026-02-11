@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CommunityToolkit.Maui" Version="8.0.0" />
+    <PackageReference Include="CommunityToolkit.Maui.Core" Version="8.0.0" />
+    <PackageReference Include="CommunityToolkit.Mvvm" Version="8.4.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Application.Domain\MauiUltimateTemplate.Domain.csproj" />
+    <ProjectReference Include="..\MauiUltimateTemplate.Application\MauiUltimateTemplate.Application.csproj" />
+  </ItemGroup>
+
+</Project>

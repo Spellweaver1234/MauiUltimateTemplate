@@ -3,10 +3,10 @@
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
-using MauiUltimateTemplate.Services.DTOs;
-using MauiUltimateTemplate.Services.Features;
+using MauiUltimateTemplate.Application.DTOs;
+using MauiUltimateTemplate.Application.Managers;
 
-namespace MauiUltimateTemplate.ViewModels
+namespace MauiUltimateTemplate.Application.UI.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
@@ -18,7 +18,6 @@ namespace MauiUltimateTemplate.ViewModels
         public MainViewModel(NoteManager noteManager)
         {
             _noteManager = noteManager;
-            //Task.Run(async () => await LoadNotes());
         }
 
         [RelayCommand]
@@ -32,7 +31,7 @@ namespace MauiUltimateTemplate.ViewModels
         private async Task AddNote()
         {
             await _noteManager.CreateNoteAsync("Новая заметка", "Текст заметки...");
-            await LoadNotes(); // Обновляем список через бизнес-логику
+            await LoadNotes();
         }
     }
 }

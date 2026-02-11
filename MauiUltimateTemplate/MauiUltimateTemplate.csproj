@@ -68,7 +68,7 @@
 
 	<ItemGroup>
 	  <ProjectReference Include="..\Appl.Infrastructure\MauiUltimateTemplate.Infrastructure.csproj" />
-	  <ProjectReference Include="..\Appl.Services\MauiUltimateTemplate.Services.csproj" />
+	  <ProjectReference Include="..\MauiUltimateTemplate.Application.UI\MauiUltimateTemplate.Application.UI.csproj" />
 	</ItemGroup>
 
 </Project>

@@ -1,7 +1,9 @@
 <Solution>
   <Project Path="Appl.Infrastructure/MauiUltimateTemplate.Infrastructure.csproj" Id="e7f419d6-4ba4-41ca-bcb3-9e665af9201e" />
-  <Project Path="Appl.Services/MauiUltimateTemplate.Services.csproj" Id="eff20d6c-ab36-4601-9ffa-869fc29643b2" />
   <Project Path="Application.Domain/MauiUltimateTemplate.Domain.csproj" Id="17dbeed5-0438-46ad-97e8-a1cd8930174a" />
+  <Project Path="MauiUltimateTemplate.Application.UI/MauiUltimateTemplate.Application.UI.csproj" Id="19fcc28a-7269-40af-aa1a-c29b72901431" />
+  <Project Path="MauiUltimateTemplate.Application/MauiUltimateTemplate.Application.csproj" Id="20214a90-0c01-47be-8a7d-bc47877d2da9" />
+  <Project Path="MauiUltimateTemplate.Console/MauiUltimateTemplate.Console.csproj" Id="f1f2a696-dcd3-4be1-9865-28b73084f0ff" />
   <Project Path="MauiUltimateTemplate/MauiUltimateTemplate.csproj">
     <Deploy Solution="Debug|*" />
   </Project>

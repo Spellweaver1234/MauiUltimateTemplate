@@ -2,8 +2,8 @@
 <ContentPage
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:models="clr-namespace:MauiUltimateTemplate.Services.DTOs;assembly=MauiUltimateTemplate.Services"
-    xmlns:viewModels="clr-namespace:MauiUltimateTemplate.ViewModels"
+    xmlns:dtos="clr-namespace:MauiUltimateTemplate.Application.DTOs;assembly=MauiUltimateTemplate.Application"
+    xmlns:viewModels="clr-namespace:MauiUltimateTemplate.Application.UI.ViewModels;assembly=MauiUltimateTemplate.Application.UI"
     x:DataType="viewModels:MainViewModel"
     x:Class="MauiUltimateTemplate.MainPage">
     <Grid
@@ -17,7 +17,7 @@
             <CollectionView.ItemTemplate>
                 <DataTemplate>
                     <VerticalStackLayout
-                        x:DataType="models:NoteDto"
+                        x:DataType="dtos:NoteDto"
                         Padding="10">
                         <HorizontalStackLayout
                             Spacing="40">

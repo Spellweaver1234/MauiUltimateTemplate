@@ -1,4 +1,4 @@
-﻿using MauiUltimateTemplate.ViewModels;
+﻿using MauiUltimateTemplate.Application.UI.ViewModels;
 
 namespace MauiUltimateTemplate
 {
