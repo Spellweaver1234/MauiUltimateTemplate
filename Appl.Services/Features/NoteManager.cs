@@ -1,9 +1,8 @@
-﻿using Application.Domain.Entities;
-
+﻿using MauiUltimateTemplate.Domain.Entities;
 using MauiUltimateTemplate.Domain.Interfaces;
 using MauiUltimateTemplate.Services.DTOs;
 
-using IConnectivity = Application.Domain.Interfaces.IConnectivity;
+using IConnectivity = MauiUltimateTemplate.Domain.Interfaces.IConnectivity;
 
 namespace MauiUltimateTemplate.Services.Features
 {

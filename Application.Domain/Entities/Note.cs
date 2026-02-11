@@ -1,4 +1,4 @@
-﻿namespace Application.Domain.Entities
+﻿namespace MauiUltimateTemplate.Domain.Entities
 {
     public class Note
     {

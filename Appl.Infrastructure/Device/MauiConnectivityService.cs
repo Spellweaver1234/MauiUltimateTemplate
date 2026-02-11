@@ -1,33 +1,33 @@
-﻿using Application.Domain.Interfaces;
+﻿using MauiUltimateTemplate.Domain.Interfaces;
 
-using IConnectivity = Application.Domain.Interfaces.IConnectivity;
+using MauiConnectivity = Microsoft.Maui.Networking.Connectivity;
 
 namespace MauiUltimateTemplate.Infrastructure.Device
 {
-    public class MauiConnectivityService : IConnectivity, IDisposable
+    public class MauiConnectivityService : Domain.Interfaces.IConnectivity, IDisposable
     {
         public MauiConnectivityService()
         {
-            // Подписываемся на системное событие MAUI
-            Connectivity.Current.ConnectivityChanged += OnMauiConnectivityChanged;
+            MauiConnectivity.Current.ConnectivityChanged += OnMauiConnectivityChanged;
         }
 
-        public bool IsConnected => Connectivity.Current.NetworkAccess == NetworkAccess.Internet;
+        public bool IsConnected =>
+            MauiConnectivity.Current.NetworkAccess == NetworkAccess.Internet;
 
-        public NetworkType CurrentNetworkType => MapNetworkType(Connectivity.Current.ConnectionProfiles);
+        public NetworkType CurrentNetworkType =>
+            MapNetworkType(MauiConnectivity.Current.ConnectionProfiles);
 
         public event Action<bool> ConnectivityChanged;
 
         private void OnMauiConnectivityChanged(object sender, ConnectivityChangedEventArgs e)
         {
-            // Уведомляем наш Domain о том, что статус изменился
             ConnectivityChanged?.Invoke(e.NetworkAccess == NetworkAccess.Internet);
         }
 
-        // Вспомогательный маппинг типов (из MAUI в наш Domain)
         private NetworkType MapNetworkType(IEnumerable<ConnectionProfile> profiles)
         {
-            if (!profiles.Any()) return NetworkType.None;
+            // Проверка на null и пустоту для безопасности
+            if (profiles == null || !profiles.Any()) return NetworkType.None;
 
             var profile = profiles.First();
             return profile switch
@@ -41,7 +41,7 @@ namespace MauiUltimateTemplate.Infrastructure.Device
 
         public void Dispose()
         {
-            Connectivity.Current.ConnectivityChanged -= OnMauiConnectivityChanged;
+            MauiConnectivity.Current.ConnectivityChanged -= OnMauiConnectivityChanged;
         }
     }
 }

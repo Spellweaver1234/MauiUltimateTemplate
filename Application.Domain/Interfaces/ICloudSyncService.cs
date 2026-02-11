@@ -1,4 +1,4 @@
-﻿using Application.Domain.Entities;
+﻿using MauiUltimateTemplate.Domain.Entities;
 
 namespace MauiUltimateTemplate.Domain.Interfaces
 {

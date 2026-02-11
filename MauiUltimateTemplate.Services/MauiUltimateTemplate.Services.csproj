@@ -23,7 +23,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\MauiUltimateTemplate.Domain\MauiUltimateTemplate.Domain.csproj" />
+	  <ProjectReference Include="..\Application.Domain\Application.Domain.csproj" />
 	</ItemGroup>
 
 </Project>

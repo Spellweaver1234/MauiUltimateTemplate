@@ -1,4 +1,4 @@
-﻿namespace Application.Domain.Interfaces
+﻿namespace MauiUltimateTemplate.Domain.Interfaces
 {
     public interface IConnectivity
     {

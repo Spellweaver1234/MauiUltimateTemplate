@@ -1,8 +1,7 @@
 <Solution>
-  <Project Path="Application.Domain/Application.Domain.csproj" Id="17dbeed5-0438-46ad-97e8-a1cd8930174a" />
-  <Project Path="MauiUltimateTemplate.Domain/MauiUltimateTemplate.Domain.csproj" />
-  <Project Path="MauiUltimateTemplate.Infrastructure/MauiUltimateTemplate.Infrastructure.csproj" />
-  <Project Path="MauiUltimateTemplate.Services/MauiUltimateTemplate.Services.csproj" />
+  <Project Path="Appl.Infrastructure/MauiUltimateTemplate.Infrastructure.csproj" Id="e7f419d6-4ba4-41ca-bcb3-9e665af9201e" />
+  <Project Path="Appl.Services/MauiUltimateTemplate.Services.csproj" Id="eff20d6c-ab36-4601-9ffa-869fc29643b2" />
+  <Project Path="Application.Domain/MauiUltimateTemplate.Domain.csproj" Id="17dbeed5-0438-46ad-97e8-a1cd8930174a" />
   <Project Path="MauiUltimateTemplate/MauiUltimateTemplate.csproj">
     <Deploy Solution="Debug|*" />
   </Project>
