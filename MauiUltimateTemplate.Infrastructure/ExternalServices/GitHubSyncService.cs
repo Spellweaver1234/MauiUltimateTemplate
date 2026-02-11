@@ -1,6 +1,7 @@
 ﻿using System.Net.Http.Json;
 
-using MauiUltimateTemplate.Domain.Entities;
+using Application.Domain.Entities;
+
 using MauiUltimateTemplate.Domain.Interfaces;
 
 namespace MauiUltimateTemplate.Infrastructure.ExternalServices

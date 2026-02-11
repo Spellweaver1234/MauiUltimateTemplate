@@ -1,4 +1,5 @@
 <Solution>
+  <Project Path="Application.Domain/Application.Domain.csproj" Id="17dbeed5-0438-46ad-97e8-a1cd8930174a" />
   <Project Path="MauiUltimateTemplate.Domain/MauiUltimateTemplate.Domain.csproj" />
   <Project Path="MauiUltimateTemplate.Infrastructure/MauiUltimateTemplate.Infrastructure.csproj" />
   <Project Path="MauiUltimateTemplate.Services/MauiUltimateTemplate.Services.csproj" />

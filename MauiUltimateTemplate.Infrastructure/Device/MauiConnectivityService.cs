@@ -1,6 +1,4 @@
-﻿using MauiUltimateTemplate.Domain.Interfaces;
-
-using IConnectivity = MauiUltimateTemplate.Domain.Interfaces.IConnectivity;
+﻿using IConnectivity = Application.Domain.Interfaces.IConnectivity;
 
 namespace MauiUltimateTemplate.Infrastructure.Device
 {

@@ -51,6 +51,7 @@ namespace MauiUltimateTemplate.Services.Features
                 n.Id,
                 n.Title,
                 n.Content.Length > 50 ? n.Content[..50] + "..." : n.Content,
+                n.CreatedAt.ToShortDateString(),
                 n.UpdatedAt.ToShortDateString()
             ));
         }

@@ -1,4 +1,5 @@
-﻿using MauiUltimateTemplate.Domain.Entities;
+﻿using Application.Domain.Entities;
+
 using MauiUltimateTemplate.Domain.Interfaces;
 
 using SQLite;

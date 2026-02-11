@@ -1,24 +1,20 @@
-﻿namespace MauiUltimateTemplate
+﻿using MauiUltimateTemplate.ViewModels;
+
+namespace MauiUltimateTemplate
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
-        public MainPage()
+        public MainPage(MainViewModel viewModel)
         {
             InitializeComponent();
+            BindingContext = viewModel;
         }
 
-        private void OnCounterClicked(object? sender, EventArgs e)
+        protected override void OnAppearing()
         {
-            count++;
+            base.OnAppearing();
 
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            (BindingContext as MainViewModel)?.LoadNotesCommand.Execute(null);
         }
     }
 }
